@@ -24,9 +24,9 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 * Under the `File` menu, click on `New project`, choose `Version Control`, then
   `Git`
 * Here you will be prompted to enter a `Repository URL`. The directory structure is located in GitHub and so will you need the following url to clone the repo: https://github.com/mistrm82/2015-03-23-hbc-swc.git. 
-* Once the url is copy/pasted, the `Project directory name` will automatically populate with the name of the repo `2015-03-23-hbc-swc`. You will need to specify where you would like to place thsi directory. This will become your **working directory** for the rest of class.
+* Once the url is copy/pasted, the `Project directory name` will automatically populate with the name of the repo `2015-03-23-hbc-swc`. You will need to specify where you would like to place this directory. This will become your **working directory** for the rest of class.
   (e.g., `~/teaching/2015-03-23-hbc-swc`)
-* Create a new R script (File > New File > R script) and save it in your working
+* Create a new R script (File --> New File --> R script) and save it in your working
   directory (e.g. `softwarecarpentry-script.R`)
 
 # Presentation of RStudio
@@ -191,9 +191,14 @@ place to understand the underpinnings of the R language.
 The [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical
 but it is full of useful information.
 
-Once you feel you have mastered some of the basics, you may want to check out Hadley Wickham's [online book](http://adv-r.had.co.nz/) to improve programming skills and better undertand the R language.
+Once you feel you have mastered some of the basics, you may want to check out Hadley Wickham's [online book](http://adv-r.had.co.nz/) to improve programming skills and better understand the R language.
 
 ### Asking for help
+
+* The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
+  mailing lists.
+* [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
+  useful guidelines
 
 The key to get help from someone is for them to grasp your problem rapidly. You
 should make it as easy as possible to pinpoint where the issue might be.
@@ -266,9 +271,4 @@ sessionInfo()
 * There are also some topic-specific mailing lists (GIS, phylogenetics, etc...),
   the complete list is [here](http://www.r-project.org/mail.html).
 
-### More resources
 
-* The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
-  mailing lists.
-* [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
-  useful guidelines
