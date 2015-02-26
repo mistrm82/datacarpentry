@@ -31,12 +31,24 @@ _Start by showing an example of a script_
 
 ![Example of a simple R script](img/r_starting_example_script.png)
 
+## Assignment operator
+
+`<-` is the assignment operator. Assigns values on the right to objects on the
+left, it is like an arrow that points from the value to the object. Mostly
+similar to `=` but not always. Learn to use `<-` as it is good programming
+practice. Using `=` in place of `<-` can lead to issues down the line.
+
+In RStudio, typing `Alt + -` (push `Alt`, the key next to your space bar at the
+same time as the `-` key) will write ` <- ` in a single keystroke.
+
+`=` should only be used to specify the values of arguments in functions for
+instance `read.csv(file="put_some_data_here")`.
+
 ## Creating objects
 
 ```{r, echo=FALSE, purl=TRUE}
 ### Creating objects (assignments)
 ```
-
 You can get output from R simply by typing in math in the console
 
 ```{r, purl=FALSE}
@@ -190,5 +202,48 @@ Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
 factors (`factor`).
 
-We are now going to use our "surveys" dataset to explore the `data.frame` data
-structure.
+## Functions and their arguments
+
+Functions are "self contained" modules of code that accomplish a specific task. Functions usually take in data, process it, and return a result.
+Let's look at a simple function call below `read.csv`. This function is used to read in data from a csv file.
+
+```{r, eval=FALSE}
+metadata <- read.csv(file="meta/mouse_exp_design.csv")
+```
+_Autocomplete: When typing out the function call try pressing the `Tab` key after typing only `read`. You will see a drop-down menu appear offering you a list of read functions that are available for use. The window to the right gives you more information on the function and its arguments as you scroll down and highlight each individually._ 
+
+The `file=` part inside the parentheses is called an argument, and most
+functions use arguments. Arguments modify the behavior of the
+function. Typically, they take some input (e.g., some data, an object) and other
+options to change what the function will return, or how to treat the data
+provided.
+
+Most functions can take several arguments, but most are specified by default so
+you don't have to enter them. To see these default values, you can either type
+`args(read.csv)` or look at the help for this function (e.g., `?read.csv`).
+
+```{r, results='show'}
+args(read.csv)
+```
+
+If you provide the arguments in the exact same order as they are defined you
+don't have to name them:
+
+```{r, eval=FALSE}
+read.csv(file="meta/mouse_exp_design.csv", header=TRUE) # is identical to:
+read.csv("meta/mouse_exp_design.csv", TRUE)
+```
+
+However, it's usually not recommended practice because it's a lot of remembering
+to do, and if you share your code with others that includes less known functions
+it makes your code difficult to read. (It's however OK to not include the names
+of the arguments for basic functions like `mean`, `min`, etc...)
+
+Another advantage of naming arguments, is that the order doesn't matter:
+
+```{r, eval=FALSE}
+read.csv(file="meta/mouse_exp_design.csv", header=TRUE) # is identical to:
+read.csv(header=TRUE, file="meta/mouse_exp_design.csv")
+```
+
+
