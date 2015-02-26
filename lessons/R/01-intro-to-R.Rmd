@@ -17,19 +17,7 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 > * Get exposed to a few functions
 
 
-## The R syntax
-
-_Start by showing an example of a script_
-
-* Point to the different parts:
-  - a function
-  - the assignment operator `<-`
-  - the `=` for arguments
-  - the comments `#` and how they are used to document function and its content
-  - the `$` operator
-* Point to indentation and consistency in spacing to improve clarity
-
-![Example of a simple R script](img/r_starting_example_script.png)
+# The R syntax
 
 ## Assignment operator
 
@@ -44,11 +32,7 @@ same time as the `-` key) will write ` <- ` in a single keystroke.
 `=` should only be used to specify the values of arguments in functions for
 instance `read.csv(file="put_some_data_here")`.
 
-## Creating objects
 
-```{r, echo=FALSE, purl=TRUE}
-### Creating objects (assignments)
-```
 You can get output from R simply by typing in math in the console
 
 ```{r, purl=FALSE}
@@ -56,8 +40,7 @@ You can get output from R simply by typing in math in the console
 12/7
 ```
 
-However, to do useful and interesting things, we need to assign _values_ to
-_objects_. To create objects, we need to give it a name followed by the
+However, to do useful and interesting things, we need to **assign values to objects**. To create objects, we need to give it a name followed by the
 assignment operator `<-` and the value we want to give it:
 
 ```{r, purl=FALSE}
@@ -77,7 +60,7 @@ check the help to see if the name is already in use. It's also best to avoid
 dots (`.`) within a variable name as in `my.dataset`. It is also recommended to
 use nouns for variable names, and verbs for function names.
 
-When assigning a value to an object, R does not print anything. You can force to
+When assigning a value to an object, R does not print anything. You can force it to
 print the value by using parentheses or by typing the name:
 
 ```{r, purl=FALSE}
@@ -114,8 +97,9 @@ and then change `weight_kg` to 100.
 ```{r, purl=FALSE}
 weight_kg <- 100
 ```
-
 What do you think is the current content of the object `weight_lb`? 126.5 or 200?
+
+_Note: When typing out a variable that is stored try pressing the `Tab` key after typing only `weight`. You will find that RStudio will auto-complete the variable name or a drop-down menu will appear. For function calls this will also work. The window to the right gives you more information on the function and its arguments as you scroll down and highlight each individually._ 
 
 ### Exercise
 
@@ -204,13 +188,12 @@ factors (`factor`).
 
 ## Functions and their arguments
 
-Functions are "self contained" modules of code that accomplish a specific task. Functions usually take in data, process it, and return a result.
-Let's look at a simple function call below `read.csv`. This function is used to read in data from a csv file.
+Functions are "self contained" modules of code that accomplish a specific task. Functions usually take in data, process it, and return a result. We have already used a few in our examples above i.e `length`, `class` and `str`.
+Let's look at a more advanced function call below `read.csv`. This function is used to read in data from a csv file.
 
 ```{r, eval=FALSE}
 metadata <- read.csv(file="meta/mouse_exp_design.csv")
 ```
-_Autocomplete: When typing out the function call try pressing the `Tab` key after typing only `read`. You will see a drop-down menu appear offering you a list of read functions that are available for use. The window to the right gives you more information on the function and its arguments as you scroll down and highlight each individually._ 
 
 The `file=` part inside the parentheses is called an argument, and most
 functions use arguments. Arguments modify the behavior of the
