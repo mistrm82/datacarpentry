@@ -24,18 +24,10 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 * Under the `File` menu, click on `New project`, choose `Version Control`, then
   `Git`
 * Here you will be prompted to enter a `Repository URL`. The directory structure is located in GitHub and so will you need the following url to clone the repo: https://github.com/mistrm82/2015-03-23-hbc-swc.git. 
-* This will be your **working directory** for the rest of the day
-  (e.g., `~/data-carpentry`)
-* Click on "Create project"
-* Under the `Files` tab on the right of the screen, click on `New Folder` and
-  create a folder named `data` within your newly created working directory.
-  (e.g., `~/data-carpentry/data`)
+* Once the url is copy/pasted, the `Project directory name` will automatically populate with the name of the repo `2015-03-23-hbc-swc`. You will need to specify where you would like to place thsi directory. This will become your **working directory** for the rest of class.
+  (e.g., `~/teaching/2015-03-23-hbc-swc`)
 * Create a new R script (File > New File > R script) and save it in your working
-  directory (e.g. `data-carpentry-script.R`)
-
-Your working directory should now look like this:
-
-![How it should look like at the beginning of this lesson](img/r_starting_how_it_should_like.png)
+  directory (e.g. `softwarecarpentry-script.R`)
 
 # Presentation of RStudio
 
@@ -44,7 +36,7 @@ Let's start by learning about our tool.
 _Point out the different windows in R._
 
 * Console, Scripts, Environments, Plots
-* Avoid using shortcuts.
+* Navgating between Console and Script `Ctrl 2` will take you to the console, `Ctrl 1` will take you back to the script. Type in your script `6 + 6`. Keeping your cursor on the line, if you press `Ctrl Enter` you will see that the code has been run in the console. There are many [shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts) and they differ based on the OS you are using.  
 * Code and workflow is more reproducible if we can document everything that we
   do.
 * Our end goal is not just to "do stuff" but to do it in a way that anyone can
@@ -68,6 +60,7 @@ for statistics but also data science. Inspired by the programming language S.
 
 Use `#` signs to comment. Comment liberally in your R scripts. Anything to the
 right of a `#` is ignored by R.
+* Start by giving your script a title `## SOFTWARE CARPENTRY INTRO TO R`
 
 ## Assignment operator
 
@@ -87,7 +80,7 @@ instance `read.csv(file="data/some_data.csv")`.
 Let's look at a simple function call:
 
 ```{r, eval=FALSE}
-surveys <- read.csv(file="data/surveys.csv")
+metadata <- read.csv(file="meta/mouse_exp_design.csv")
 ```
 
 The `file=` part inside the parentheses is called an argument, and most
@@ -108,8 +101,8 @@ If you provide the arguments in the exact same order as they are defined you
 don't have to name them:
 
 ```{r, eval=FALSE}
-read.csv(file="data/surveys.csv", header=TRUE) # is identical to:
-read.csv("data/surveys.csv", TRUE)
+read.csv(file="meta/mouse_exp_design.csv", header=TRUE) # is identical to:
+read.csv("meta/mouse_exp_design.csv", TRUE)
 ```
 
 However, it's usually not recommended practice because it's a lot of remembering
@@ -120,8 +113,8 @@ of the arguments for basic functions like `mean`, `min`, etc...)
 Another advantage of naming arguments, is that the order doesn't matter:
 
 ```{r, eval=FALSE}
-read.csv(file="data/surveys.csv", header=TRUE) # is identical to:
-read.csv(header=TRUE, file="data/surveys.csv")
+read.csv(file="meta/mouse_exp_design.csv", header=TRUE) # is identical to:
+read.csv(header=TRUE, file="meta/mouse_exp_design.csv")
 ```
 
 
