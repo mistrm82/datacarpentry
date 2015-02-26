@@ -29,9 +29,6 @@ practice. Using `=` in place of `<-` can lead to issues down the line.
 In RStudio, typing `Alt + -` (push `Alt`, the key next to your space bar at the
 same time as the `-` key) will write ` <- ` in a single keystroke.
 
-`=` should only be used to specify the values of arguments in functions for
-instance `read.csv(file="put_some_data_here")`.
-
 
 You can get output from R simply by typing in math in the console
 
@@ -115,10 +112,6 @@ massIndex <- mass/age  # massIndex?
 
 ## Vectors and data types
 
-```{r, echo=FALSE, purl=TRUE}
-### Vectors and data types
-```
-
 A vector is the most common and basic data structure in R, and is pretty much
 the workhorse of R. It's a group of values, mainly either numbers or
 characters. You can assign this list of values to a variable, just like you
@@ -188,7 +181,7 @@ factors (`factor`).
 
 ## Functions and their arguments
 
-Functions are "self contained" modules of code that accomplish a specific task. Functions usually take in data, process it, and return a result. We have already used a few in our examples above i.e `length`, `class` and `str`.
+Functions are "self contained" modules of code that accomplish a specific task. Functions usually take in data, process it, and return a result. We have already used a few examples of basic functions above i.e `length`, `class` and `str`.
 Let's look at a more advanced function call below `read.csv`. This function is used to read in data from a csv file.
 
 ```{r, eval=FALSE}
@@ -219,7 +212,7 @@ read.csv("meta/mouse_exp_design.csv", TRUE)
 
 However, it's usually not recommended practice because it's a lot of remembering
 to do, and if you share your code with others that includes less known functions
-it makes your code difficult to read. (It's however OK to not include the names
+it makes your code difficult to read. If you include names **do not use the assignment operator**. A `=` should be used to specify the values of arguments in functions. (It's however OK to not include the names
 of the arguments for basic functions like `mean`, `min`, etc...)
 
 Another advantage of naming arguments, is that the order doesn't matter:
