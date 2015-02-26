@@ -12,7 +12,7 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 >
 > * Articulating motivations for this lesson
 > * Introduce participants to the RStudio interface
-> * Set up participants to have a working directory with a `data/` folder inside
+> * Set up participants to create project from Git
 > * Introduce R syntax
 > * Point to relevant information on how to get help, and understand how to ask well formulated questions
 
@@ -20,11 +20,11 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 
 # Before we get started
 
-* Start RStudio (presentation of RStudio -below- should happen here)
-* Under the `File` menu, click on `New project`, choose `New directory`, then
-  `Empty project`
-* Enter a name for this new folder, and choose a convenient location for
-  it. This will be your **working directory** for the rest of the day
+* Start RStudio 
+* Under the `File` menu, click on `New project`, choose `Version Control`, then
+  `Git`
+* Here you will be prompted to enter a `Repository URL`. The directory structure is located in GitHub and so will you need the following url to clone the repo: https://github.com/mistrm82/2015-03-23-hbc-swc.git. 
+* This will be your **working directory** for the rest of the day
   (e.g., `~/data-carpentry`)
 * Click on "Create project"
 * Under the `Files` tab on the right of the screen, click on `New Folder` and
