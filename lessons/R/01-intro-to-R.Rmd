@@ -15,6 +15,7 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 > * Understand the concepts of objects and assignment
 > * Understand the concepts of vector and data types
 > * Get exposed to a few functions
+> * Understanding packages and libraries
 
 
 # The R syntax
@@ -222,4 +223,27 @@ read.csv(file="meta/mouse_exp_design.csv", header=TRUE) # is identical to:
 read.csv(header=TRUE, file="meta/mouse_exp_design.csv")
 ```
 
+## Packages and Libraries
 
+Packages are collections of R functions, data, and compiled code in a well-defined format. The directory where packages are stored is called the library. The two terms are sometimes used synonomously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. It is somewhat counter-intuitive to _load a package_ using the `library())` function and so you can see how confusion can arise
+There are a set of standard (or base) packages which are considered part of the R source code. They contain the basic functions that allow R to work, and enable standard statistical and graphical functions on datasets. They should be automatically available in any R installation. The functions that we have been using so far in our examples are from the base packages.
+
+You can check this by typing into the console and listing your attached base packages:
+
+```{r, eval=FALSE}
+sessionInfo()
+```
+
+For the most part we will be using functions from the standard base packages. However, the more you work with R you will come to realize that going beyond the standard there is a world of added functionality. To use additional packages you will first need to install it, and then load the library for use in your R session. 
+Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository:
+
+```{r, eval=FALSE}
+install.packages('package_name_here')
+```
+
+Alternatively, packages can also be installed from [Bioconductor]() by using the `biocLite.R` script 
+
+```{r, eval=FALSE}
+source("http://bioconductor.org/biocLite.R")
+biocLite('package_name_here')
+```
