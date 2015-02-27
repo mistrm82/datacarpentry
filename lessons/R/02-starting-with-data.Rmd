@@ -42,13 +42,30 @@ __At this point, make sure all participants have the data loaded__
 
 This statement doesn't produce any output because assignment doesn't display
 anything. If we want to check that our data has been loaded, we can print the
-variable's value: `metadata`
+variable's value: 
+
+```{r, echo=FALSE}
+metadata`
+         genotype celltype replicate
+sample1        Wt    typeA         1
+sample2        Wt    typeA         2
+sample3        Wt    typeA         3
+sample4        KO    typeA         1
+sample5        KO    typeA         2
+sample6        KO    typeA         3
+sample7        Wt    typeB         1
+sample8        Wt    typeB         2
+sample9        Wt    typeB         3
+sample10       KO    typeB         1
+sample11       KO    typeB         2
+sample12       KO    typeB         3
+```
 
 Suppose we had a larger file, we might not want to display all the contents in the console. Instead we could check the top (the first 6 lines) of this `data.frame` using the
 function `head()`:
 
 ```{r, results='show', purl=FALSE}
-head()
+head(metadata)
 ```
 
 Let's now check the __str__ucture of this `data.frame` in more details with the
@@ -69,13 +86,32 @@ Based on the output of `str(metadata)`, can you answer the following questions?
 * How many rows and how many columns are in this object?
 * How many species have been recorded during these surveys?
 
-```{r, echo=FALSE, purl=TRUE}
-## Exercise
-## Based on the output of `str(surveys)`, can you answer the following questions?
-## * What is the `class` of the object `metadata`?
-## * How many rows and how many columns are in this object?
-## * How many species have been recorded during these surveys?
-```
+# Inspecting `data.frame` objects
+
+We already saw how the functions `head()` and `str()` can be useful to check the
+content and the structure of a `data.frame`. Here is a non-exhaustive list of
+functions to get a sense of the content/structure of the data.
+
+* Size:
+    * `dim()` - returns a vector with the number of rows in the first element, and
+	  the number of columns as the second element (the __dim__ensions of the object)
+    * `nrow()` - returns the number of rows
+    * `ncol()` - returns the number of columns
+* Content:
+    * `head()` - shows the first 6 rows
+    * `tail()` - shows the last 6 rows
+* Names:
+    * `names()` - returns the column names (synonym of `colnames()` for `data.frame`
+	objects)
+   * `rownames()` - returns the row names
+* Summary:
+   * `str()` - structure of the object and information about the class, length and
+	content of  each column
+   * `summary()` - summary statistics for each column
+
+Note: most of these functions are "generic", they can be used on other types of
+objects besides `data.frame`.
+
 
 As you can see, the columns `species` and `sex` are of a special class called
 `factor`. Before we learn more about the `data.frame` class, we are going to
