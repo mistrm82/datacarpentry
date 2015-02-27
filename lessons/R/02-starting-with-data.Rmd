@@ -19,9 +19,8 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 
 # Loading in files
 
-We are studying two different celltypes in mice and want to evaluate how gene expression differs in WT versus Knockout (KO).
-area.  The experimental design setup is stored as a `.csv` file: each row holds information for a single animal, and the columns represent `genotype`(WT or KO) , `celltype` (typeA or typeB), 
-and `replicate number`.
+We are studying two different celltypes in mice and want to evaluate how gene expression differs in WT versus Knockout (KO).  The experimental design setup is stored as a `.csv` file: each row holds information for a single animal, and the columns represent `genotype`(WT or KO) , 
+`celltype` (typeA or typeB), and `replicate number`.
 
 To load in our metadata, we need to locate the `mouse_exp_design.csv` file. We will use
 `read.csv()` to load into memory (as a `data.frame`) the content of the CSV
@@ -84,7 +83,6 @@ Based on the output of `str(metadata)`, can you answer the following questions?
 
 * What is the class of the object `metadata`?
 * How many rows and how many columns are in this object?
-* How many species have been recorded during these surveys?
 
 # Inspecting `data.frame` objects
 
@@ -113,17 +111,13 @@ Note: most of these functions are "generic", they can be used on other types of
 objects besides `data.frame`.
 
 
-As you can see, the columns `species` and `sex` are of a special class called
+As you can see, the columns `genotype` and `celltype` are of a special class called
 `factor`. Before we learn more about the `data.frame` class, we are going to
 talk about factors. They are very useful but not necessarily intuitive, and
 therefore require some attention.
 
 
 ## Factors
-
-```{r, echo=FALSE, purl=TRUE}
-### Factors
-```
 
 Factors are used to represent categorical data. Factors can be ordered or
 unordered and are an important class for statistical analysis and for plotting.
@@ -153,12 +147,17 @@ nlevels(sex)
 
 Sometimes, the order of the factors does not matter, other times you might want
 to specify the order because it is meaningful (e.g., "low", "medium", "high") or
-it is required by particular type of analysis. Additionally, specifying the
-order of the levels allows to compare levels:
+it is required by particular type of analysis. For example, in this case you might want the "low" group to be your base
+level. That is, we are only interested in changes relative to "low".
 
 ```{r, purl=TRUE, error=TRUE}
 food <- factor(c("low", "high", "medium", "high", "low", "medium", "high"))
 levels(food)
+relevel(food, ref="low")
+```
+ Additionally, specifying the order of the levels allows to compare levels:
+
+```{r, purl=TRUE, error=TRUE}
 food <- factor(food, levels=c("low", "medium", "high"))
 levels(food)
 min(food) ## doesn't work
@@ -171,8 +170,7 @@ In R's memory, these factors are represented by numbers (1, 2, 3). They are
 better than using simple integer labels because factors are self describing:
 `"low"`, `"medium"`, and `"high"`" is more descriptive than `1`, `2`, `3`. Which
 is low?  You wouldn't be able to tell with just integer data. Factors have this
-information built in. It is particularly helpful when there are many levels
-(like the species in our example data set).
+information built in. It is particularly helpful when there are many levels.
 
 ### Converting factors
 
@@ -203,9 +201,3 @@ table(exprmt)
 barplot(table(exprmt))
 ```
 
-<!---
-```{r, purl=FALSE}
-exprmt <- factor(exprmt, levels=c("treat1", "treat2", "treat3", "control"))
-barplot(table(exprmt))
-```
---->
