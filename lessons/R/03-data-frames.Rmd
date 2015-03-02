@@ -14,6 +14,7 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 > * Accessing elements of a dataframe
 > * Plotting using `table`, `barplot`, `mosaic`
 > * Subsetting data and reordering data
+> * Matching elements of dataframes
 
 
 # Indexing and sequences
@@ -113,25 +114,20 @@ In some cases, you may way to select more than one column. You can do this using
 the square brackets and concatenating a vector of strings that correspond to column names: `metadata[, c("genotype", "celltype")]`.
 
 
-# Subetting data
+# Subsetting data
 
 When analyzing data, though, we often want to look at partial statistics, such
 as the maximum value of a variable per species or the average value per plot.
 
 One way to do this is to select the data we want, and create a new temporary
 array, using the `subset()` function. For instance, if we just want to look at
-the animals of the species "DO":
+the animals of the celltype "typeA":
 
 ```{r, purl=FALSE}
-surveys_DO <- subset(surveys, species == "DO")
+metadata_typeA <- subset(metadata, celltype == "typeA")
 ```
 
-### Challenge
+# Matching data 
 
-1. What does the following do?
-
-  ```{r, echo=FALSE, purl=TRUE}
-  ## What does the following do? (Try to guess without executing it)
-  ## surveys_DO$month[2] <- 8
-  ```
+`match` and using the `%in%` operator 
 
