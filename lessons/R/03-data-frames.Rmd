@@ -96,7 +96,7 @@ metadata[seq(1, nrow(metadata2), by=2),]
 select_rows <- seq(1, nrow(metadata2), by=2)
 metadata[select_rows,]
 ```
-In particular for larger datasets, it can be tricky to remember the column
+For larger datasets, it can be tricky to remember the column
 number that corresponds to a particular variable. (Are species names in column 5
 or 7? oh, right... they are in column 6). In some cases, in which column the
 variable will be can change if the script you are using adds or removes
@@ -106,11 +106,14 @@ clearer.
 
 You can do operations on a particular column, by selecting it using the `$`
 sign. In this case, the entire column is a vector. For instance, to extract all
-the weights from our datasets, we can use: `surveys$wgt`. You can use
-`names(surveys)` or `colnames(surveys)` to remind yourself of the column names.
+the gentotypes from our dataset, we can use: `metadata$genotype`. You can use
+`names(metadata)` or `colnames(metadata)` to remind yourself of the column names.
 
 In some cases, you may way to select more than one column. You can do this using
-the square brackets: `surveys[, c("wgt", "sex")]`.
+the square brackets and concatenating a vector of strings that correspond to column names: `metadata[, c("genotype", "celltype")]`.
+
+
+# Subetting data
 
 When analyzing data, though, we often want to look at partial statistics, such
 as the maximum value of a variable per species or the average value per plot.
