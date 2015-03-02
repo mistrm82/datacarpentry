@@ -14,7 +14,6 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 > * Load in data (CSV files)
 > * Explore the structure and the content of the data in R
 > * Understand what are factors and how to manipulate them
-> * Accessing elements of a data frame
 
 # What are data frames?
 
@@ -78,6 +77,21 @@ sample10       KO    typeB         1
 sample11       KO    typeB         2
 sample12       KO    typeB         3
 ```
+By default, using the `read.csv` function will load in the data and assign the first row of the table to be our **column names**. Additionally since our header has one less name than there are columns R automatically assigns the **first column as row names**.
+We can look at the values assigned for each by using `row.names` and `col.names`.
+
+```{r, results='show', purl=FALSE}
+row.names(metadata)
+col.names(metadata)
+```
+
+We can change the default settings by adding in arguments when we read in the data by setting `header = FALSE`.
+
+```{r, results='show', purl=FALSE}
+metadata <- read.csv('meta/mouse_exp_design.csv', header=F)
+```
+
+Check to see how your dataframe has changed. Load the dat in again using default settings to continue.
 
 Suppose we had a larger file, we might not want to display all the contents in the console. Instead we could check the top (the first 6 lines) of this `data.frame` using the
 function `head()`:
@@ -205,5 +219,4 @@ as.numeric(f)               ## wrong! and there is no warning...
 as.numeric(as.character(f)) ## works...
 as.numeric(levels(f))[f]    ## The recommended way.
 ```
-
 
