@@ -11,8 +11,7 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 
 > ## Learning Objectives
 >
-> * being able to subset for a level
-> * being able to extract particular values from a `data.frame`
+> * replacing values in row/vectors
 > * being able to add/remove columns and rows
 
 
