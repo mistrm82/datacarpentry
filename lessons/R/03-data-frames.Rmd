@@ -129,5 +129,13 @@ metadata_typeA <- subset(metadata, celltype == "typeA")
 
 # Matching data 
 
-`match` and using the `%in%` operator 
+Let's bring in our data matrix. The experimental design file is associated with RNA-Seq data. From the experiment we have three different data files that have been generated which can be found in the `/data` directory.
+We will be using the RPKM data for now. Load in this file similar to how we did for our metadata file.
+
+```{r, purl=FALSE}
+rpkm_data <- read.csv(data/counts.rpkm)
+```
+Check the dimensions, colnames. Do we have data for every sample that we have metadata? Are the samples in teh same order?
+
+Subset the data to only look at one cell type
 
