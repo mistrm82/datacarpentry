@@ -10,7 +10,7 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 ```
 
 > ## Learning Objectives
-> * Indexing and using sequences
+> * Indexing and sequences
 > * Accessing elements of a dataframe
 > * Plotting using `table`, `barplot`, `mosaic`
 > * Subsetting data and reordering data
@@ -87,13 +87,48 @@ metadata[ ,3]    # the entire 3rd column
 
 1. The function `nrow()` on a `data.frame` returns the number of rows. Use it,
    in conjuction with `seq()` to create a new `data.frame` called
-   `surveys_by_10` that includes every 10th row of the survey data frame
-   starting at row 10 (10, 20, 30, ...)
+   `meta_by_2` that includes every other row of the metadata
 
 ```{r, echo=FALSE, purl=TRUE}
-### The function `nrow()` on a `data.frame` returns the number of
-### rows. Use it, in conjuction with `seq()` to create a new
-### `data.frame` called `surveys_by_10` that includes every 10th row
-### of the survey data frame starting at row 10 (10, 20, 30, ...)
+metadata[seq(1, nrow(metadata2), by=2),]
+
+## or step-by-step
+select_rows <- seq(1, nrow(metadata2), by=2)
+metadata[select_rows,]
 ```
+In particular for larger datasets, it can be tricky to remember the column
+number that corresponds to a particular variable. (Are species names in column 5
+or 7? oh, right... they are in column 6). In some cases, in which column the
+variable will be can change if the script you are using adds or removes
+columns. It's therefore often better to use column names to refer to a
+particular variable, and it makes your code easier to read and your intentions
+clearer.
+
+You can do operations on a particular column, by selecting it using the `$`
+sign. In this case, the entire column is a vector. For instance, to extract all
+the weights from our datasets, we can use: `surveys$wgt`. You can use
+`names(surveys)` or `colnames(surveys)` to remind yourself of the column names.
+
+In some cases, you may way to select more than one column. You can do this using
+the square brackets: `surveys[, c("wgt", "sex")]`.
+
+When analyzing data, though, we often want to look at partial statistics, such
+as the maximum value of a variable per species or the average value per plot.
+
+One way to do this is to select the data we want, and create a new temporary
+array, using the `subset()` function. For instance, if we just want to look at
+the animals of the species "DO":
+
+```{r, purl=FALSE}
+surveys_DO <- subset(surveys, species == "DO")
+```
+
+### Challenge
+
+1. What does the following do?
+
+  ```{r, echo=FALSE, purl=TRUE}
+  ## What does the following do? (Try to guess without executing it)
+  ## surveys_DO$month[2] <- 8
+  ```
 
