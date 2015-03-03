@@ -44,6 +44,11 @@ To load in our metadata, we need to locate the `mouse_exp_design.csv` file. We w
 `read.csv()` to load into memory (as a `data.frame`) the content of the CSV
 file. Using the same command function as our previous session, but this time we will assign it to a variable.
 
+```{r, echo=FALSE, purl=FALSE}
+
+metadata <- read.csv(file='meta/mouse_exp_design.csv')
+```
+
 __At this point, make sure all participants have the data loaded__
 
 This statement doesn't produce any output because assignment doesn't display
@@ -80,7 +85,7 @@ We can change the default settings by adding in arguments when we read in the da
 metadata <- read.csv('meta/mouse_exp_design.csv', header=F)
 ```
 
-Check to see how your dataframe has changed. Load the dat in again using default settings to continue.
+Check to see how your dataframe has changed. **Load the data in again using default settings to continue.**
 
 Suppose we had a larger file, we might not want to display all the contents in the console. Instead we could check the top (the first 6 lines) of this `data.frame` using the
 function `head()`:
