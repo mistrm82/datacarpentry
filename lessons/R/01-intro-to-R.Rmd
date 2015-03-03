@@ -192,10 +192,16 @@ factors (`factor`).
 Functions are "self contained" modules of code that accomplish a specific task. Functions usually take in data, process it, and return a result. We have already used a few examples of basic functions above i.e `length`, `class` and `str`.
 Let's look at a more advanced function call below `read.csv`. This function is used to read in data from a csv file.
 
-```{r, eval=FALSE}
-metadata <- read.csv(file="meta/mouse_exp_design.csv")
+Why does this not work?
+```{r, eval=FALSE,  purl=FALSE}
+metadata <- read.csv(file='mouse_exp_design.csv')
 ```
 
+We need to make sure that the path to our file is correct. First check what our working directory is, then set the path accordingly.
+```{r, echo=FALSE, purl=FALSE}
+getwd()
+metadata <- read.csv(file='meta/mouse_exp_design.csv')
+```
 The `file=` part inside the parentheses is called an argument, and most
 functions use arguments. Arguments modify the behavior of the
 function. Typically, they take some input (e.g., some data, an object) and other
