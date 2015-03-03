@@ -10,8 +10,8 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 ```
 
 > ## Learning Objectives
-> * Subsetting data
-> * Matching values
+> * Subsetting data and reordering data
+> * Matching elements of dataframes
 > * replacing values in row/vectors
 > * being able to add/remove columns and rows
 
