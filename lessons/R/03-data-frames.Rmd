@@ -114,28 +114,3 @@ In some cases, you may way to select more than one column. You can do this using
 the square brackets and concatenating a vector of strings that correspond to column names: `metadata[, c("genotype", "celltype")]`.
 
 
-# Subsetting data
-
-When analyzing data, though, we often want to look at partial statistics, such
-as the maximum value of a variable per species or the average value per plot.
-
-One way to do this is to select the data we want, and create a new temporary
-array, using the `subset()` function. For instance, if we just want to look at
-the animals of the celltype "typeA":
-
-```{r, purl=FALSE}
-metadata_typeA <- subset(metadata, celltype == "typeA")
-```
-
-# Matching data 
-
-Let's bring in our data matrix. The experimental design file is associated with RNA-Seq data. From the experiment we have three different data files that have been generated which can be found in the `/data` directory.
-We will be using the RPKM data for now. Load in this file similar to how we did for our metadata file.
-
-```{r, purl=FALSE}
-rpkm_data <- read.csv(data/counts.rpkm)
-```
-Check the dimensions, colnames. Do we have data for every sample that we have metadata? Are the samples in teh same order?
-
-Subset the data to only look at one cell type
-
