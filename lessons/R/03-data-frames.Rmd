@@ -13,8 +13,7 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 > * Indexing and sequences
 > * Accessing elements of a dataframe
 > * Plotting using `table`, `barplot`, `mosaic`
-> * Subsetting data and reordering data
-> * Matching elements of dataframes
+
 
 
 # Indexing and sequences
