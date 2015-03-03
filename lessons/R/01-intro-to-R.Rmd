@@ -8,7 +8,6 @@ minutes: 45
 knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 ```
 
-
 > ## Learning Objectives
 >
 > * Familiarize participants with R syntax
@@ -129,6 +128,14 @@ A vector can also contain characters:
 animals <- c("mouse", "rat", "dog")
 animals
 ```
+
+Alternatively a vector can contain both:
+
+```{r, purl=FALSE}
+scores <- c("A", "B", 80, 60, 20)
+scores
+```
+
 
 There are many functions that allow you to inspect the content of a
 vector. `length()` tells you how many elements are in a particular vector:
