@@ -12,7 +12,7 @@ surveys <- read.csv(file="../../data/biology/surveys.csv")
 > ## Learning Objectives
 > * Indexing and sequences
 > * Accessing elements of a dataframe
-> * Plotting using `table`, `barplot`, `mosaic`
+> * Plotting using `table`, `barplot`
 
 
 
@@ -90,10 +90,10 @@ metadata[ ,3]    # the entire 3rd column
    `meta_by_2` that includes every other row of the metadata
 
 ```{r, echo=FALSE, purl=TRUE}
-metadata[seq(1, nrow(metadata2), by=2),]
+metadata[seq(1, nrow(metadata), by=2),]
 
 ## or step-by-step
-select_rows <- seq(1, nrow(metadata2), by=2)
+select_rows <- seq(1, nrow(metadata), by=2)
 metadata[select_rows,]
 ```
 For larger datasets, it can be tricky to remember the column
@@ -110,6 +110,25 @@ the gentotypes from our dataset, we can use: `metadata$genotype`. You can use
 `names(metadata)` or `colnames(metadata)` to remind yourself of the column names.
 
 In some cases, you may way to select more than one column. You can do this using
-the square brackets and concatenating a vector of strings that correspond to column names: `metadata[, c("genotype", "celltype")]`.
+the square brackets and concatenating a vector of strings that correspond to column names:
 
+```{r echo=TRUE}
+metadata[, c("genotype", "celltype")]
+```
+
+
+## Plots
+In our metadata file we have two factors `genotype` and `celltype`. While the `summary()` function tabulates numbers of samples and how they are distributed, we can go one step further with the `table` function which builds a contingeny table of the counts at each combination of factor levels. 
+
+```{r echo=TRUE}
+
+twofactor <- metadata[, c("genotype", "celltype")]
+table(twofactor) 
+```
+
+We can then take that table and visualize it using `barplot`. Samples are divided by celltype and the proportion of WT and KO are represented by different shades of grey within each bar.
+
+```{r echo=TRUE}
+barplot(table(twofactor), legend=TRUE) 
+```
 
