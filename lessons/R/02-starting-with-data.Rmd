@@ -42,18 +42,7 @@ We are studying two different celltypes in mice and want to evaluate how gene ex
 
 To load in our metadata, we need to locate the `mouse_exp_design.csv` file. We will use
 `read.csv()` to load into memory (as a `data.frame`) the content of the CSV
-file.
-
-Why does this not work?
-```{r, eval=FALSE,  purl=FALSE}
-metadata <- read.csv('mouse_exp_design.csv')
-```
-
-We need to make sure that the path to our file is correct. First check what our working directory is, then set the path accordingly.
-```{r, echo=FALSE, purl=FALSE}
-getwd()
-metadata <- read.csv('meta/mouse_exp_design.csv')
-```
+file. Using the same command function as our previous session, but this time we will assign it to a variable.
 
 __At this point, make sure all participants have the data loaded__
 
