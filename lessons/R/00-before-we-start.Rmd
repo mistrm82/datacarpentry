@@ -18,17 +18,6 @@ knitr::opts_chunk$set(results='hide', fig.path='img/r-lesson-')
 
 # Demonstration of what we will learn to do
 
-# Before we get started
-
-* Start RStudio 
-* Under the `File` menu, click on `New project`, choose `Version Control`, then
-  `Git`
-* Here you will be prompted to enter a `Repository URL`. The directory structure is located in GitHub and so will you need the following url to clone the repo: https://github.com/mistrm82/2015-03-23-hbc-swc.git. 
-* Once the url is copy/pasted, the `Project directory name` will automatically populate with the name of the repo `2015-03-23-hbc-swc`. You will need to specify where you would like to place this directory. This will become your **working directory** for the rest of class.
-  (e.g., `~/teaching/2015-03-23-hbc-swc`)
-* Create a new R script (File --> New File --> R script) and save it in your working
-  directory (e.g. `softwarecarpentry-script.R`)
-
 # Presentation of RStudio
 
 Let's start by learning about our tool.
@@ -55,6 +44,18 @@ for statistics but also data science. Inspired by the programming language S.
 * Not just for statistics, but also general purpose programming.
 * Is object oriented and functional.
 * Large and growing community of peers.
+
+
+# Before we get started
+
+* Start RStudio 
+* Under the `File` menu, click on `New project`, choose `Version Control`, then
+  `Git`
+* Here you will be prompted to enter a `Repository URL`. The directory structure is located in GitHub and so will you need the following url to clone the repo: https://github.com/mistrm82/2015-03-23-hbc-swc.git. 
+* Once the url is copy/pasted, the `Project directory name` will automatically populate with the name of the repo `2015-03-23-hbc-swc`. You will need to specify where you would like to place this directory. This will become your **working directory** for the rest of class.
+  (e.g., `~/teaching/2015-03-23-hbc-swc`)
+* Create a new R script (File --> New File --> R script) and save it in your working
+  directory (e.g. `softwarecarpentry-script.R`)
 
 ## Commenting
 
